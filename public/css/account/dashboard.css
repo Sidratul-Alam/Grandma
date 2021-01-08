@@ -1,0 +1,67 @@
+.dashboard {
+    position: relative;
+}
+
+.dashboard .custom-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.562);
+}
+
+@media(max-width: 576px) {
+    .dashboard .custom-modal-backdrop .card {
+        width: 93vw;
+    }
+    .dashboard .custom-modal-backdrop .card .card-body {
+        padding: 25px;
+    }
+    .dashboard .custom-modal-backdrop .card .card-header {
+        padding: 25px;
+    }
+}
+
+@media(min-width: 576px) {
+    .dashboard .custom-modal-backdrop .card {
+        width: 550px;
+    }
+    .dashboard .custom-modal-backdrop .card .card-body {
+        padding: 30px;
+    }
+    .dashboard .custom-modal-backdrop .card .card-header {
+        padding: 30px;
+    }
+}
+
+/* Suggestion */
+
+.suggestion table tr td {
+    min-width: 110px;
+}
+
+.suggestion table tr td p {
+    margin-bottom: 0;
+}
+
+.flex-center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+}
+
+.flex-column {
+    -ms-flex-direction: column !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    flex-direction: column !important;
+}
