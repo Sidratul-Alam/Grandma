@@ -8,16 +8,16 @@
 
             <table>
                 <tr>
-                    <td><p class="text-capitalize mb-0"><b>Name </b><p></td>
+                    <td><p class="text-capitalize mb-0"><b>Child's Name </b><p></td>
                     <td><p>: {{$baby->name}}</p></td>
                 </tr>
                 <tr>
-                    <td><p class="text-capitalize mb-0"><b>Date Of Birth </b><p></td>
+                    <td><p class="text-capitalize mb-0"><b>Child's Date Of Birth </b><p></td>
                     <td><p>: {{$baby->date_of_birth}}</p></td>
                 </tr>
                 <tr>
-                    <td><p class="text-capitalize mb-0"><b>Age </b><p></td>
-                    <td><p>: {{$diff->y}} year, {{$diff->m}} month {{$diff->d}} days</p></td>
+                    <td><p class="text-capitalize mb-0"><b>Child's Age </b><p></td>
+                    <td><p>: {{$diff->y}} year, {{$diff->m}} month {{$diff->d}} days </p></td>
                 </tr>
             </table>
            
@@ -26,7 +26,7 @@
 
     <div class="card rounded-0 shadow-sm border-0 my-3">
         <div class="card-body">
-            <h5 class="mb-0">Suggestion for : {{$diff->y}} year, {{$diff->m}} month {{$diff->d}} days</h5>
+            <h5 class="mb-0">Suggestion for : {{$diff->y}} year, {{$diff->m}} month {{$diff->d}} days child</h5>
         </div>
     </div>
 
