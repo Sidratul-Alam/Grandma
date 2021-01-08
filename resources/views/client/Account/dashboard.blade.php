@@ -11,6 +11,10 @@
                 <p class="mb-2">You,</p>
                 <h5 class="mb-2"><b><span><i class="fas fa-user-tie text-muted mr-2"></i></span>{{Auth()->User()->name}}</b></h5>
                 <p><span><i class="fas fa-envelope text-muted mr-2"></i></span>{{Auth()->User()->email}}</p>
+
+                <div class="updateProfileBtn float-right">
+                    <a type="button" href="" class="btn btn-primary">Update Profile</a>
+                </div>
             </div>
         </div>
     </div>
