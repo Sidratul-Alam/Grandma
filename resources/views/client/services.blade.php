@@ -25,13 +25,15 @@
             <div class="row">
                 @foreach($running_services as $running_service)
                 <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                    <div class="card">
-                        <img src="{{url('')}}/website/images/services/{{$running_service->service_image}}" class="img-fluid w-100">
-                        <div class="card-body">
-                            <h5>{{$running_service->service_title}}</h5>
-                            <p>{{$running_service->service_description}}</p>
+                    <a href="{{ route('service.show', $running_service->id) }}">
+                        <div class="card">
+                            <img src="{{url('')}}/website/images/services/{{$running_service->service_image}}" class="img-fluid w-100">
+                            <div class="card-body">
+                                <h5>{{$running_service->service_title}}</h5>
+                                <p>{{$running_service->service_description}}</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 @endforeach
             </div>

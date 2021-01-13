@@ -13,7 +13,7 @@
                 <p><span><i class="fas fa-envelope text-muted mr-2"></i></span>{{Auth()->User()->email}}</p>
 
                 <div class="updateProfileBtn float-right">
-                    <a type="button" href="" class="btn btn-primary">Update Profile</a>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Update Profile</button>
                 </div>
             </div>
         </div>
@@ -61,6 +61,46 @@
         </div>
     </div>
     @endif
+
+
+    {{-- Profile Update Modal --}}
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{{ route('account.profile.update')}}" method="post">
+              @csrf 
+
+                <div class="form-group mb-3">
+                    @if($errors->has('name'))
+                        <small class="text-danger">{{ $errors->first('name') }}</small>
+                    @else
+                        <small class="text-muted">Name</small>
+                    @endif
+                    
+                    <input 
+                        name="name"
+                        type="text" 
+                        class="form-control rounded-0 shadow-none"
+                        value="{{ Auth()->User()->name }}"   
+                    />
+                </div>
+
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success shadow-none">Update</button>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </div>
 

@@ -31,16 +31,35 @@
     </div>
 
     @if(count($final_suggestion) > 0)
+    <div id="accordion">
         @foreach ($final_suggestion as $suggestion)
-            <div class="card rounded-0 shadow-sm border-0 mb-4">
-                <div class="card-body">
+           
+        
+        <div class="card border-0 rounded-0 bg-white">
+            <div class="card-header bg-white" id="heading">
+                <button class="btn shadow-none collapsed btn-block text-left" data-toggle="collapse" data-target="#collapse{{ $suggestion->id }}" aria-expanded="false" aria-controls="collapse">
                     <h3 class="text-dark font-weight-bold mb-0">{{$suggestion->service_title}}</h3>
-                    <hr>
-                    <h4 class="text-black mb-4"><i class="fab fa-angellist text-success mr-2"></i>{{$suggestion->title}}</h4>
-                    {!! $suggestion->details !!}
-                </div>
+              </h5>
             </div>
+            <div id="collapse{{ $suggestion->id }}" class="collapse" aria-labelledby="heading" data-parent="#accordion">
+              <div class="card-body">
+                <h4 class="text-black mb-4"><i class="fab fa-angellist text-success mr-2"></i>{{$suggestion->title}}</h4>
+                {!! $suggestion->details !!}
+              </div>
+            </div>
+        </div>
+             
+
+
         @endforeach
+    </div>
+
+
+        
+
+
+
+
     @else
         <p class="bg-danger text-center text-white p-1">No suggestion for this age.</p>
     @endif

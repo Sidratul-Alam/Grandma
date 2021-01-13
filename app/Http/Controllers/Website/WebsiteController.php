@@ -28,6 +28,11 @@ class WebsiteController extends Controller
         return view('client.services', compact('running_services', 'upcoming_services'));
     }
 
+    public function servicesShow($id){
+        $service = Services::where('id', $id)->first();
+        return view('client.service-show', compact('service'));
+    }
+
     public function contact(){
         return view('client.contact');
     }

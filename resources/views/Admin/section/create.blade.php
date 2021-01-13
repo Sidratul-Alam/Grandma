@@ -56,14 +56,20 @@
                             @endif
                             
                             <select name="age_range" class="form-control form-control-lg rounded-0 shadow-none">
-                                <option value="6">0-6 (Month)</option>
-                                <option value="12">6-12 (Month)</option>
-                                <option value="18">12-18 (Month)</option>
-                                <option value="24">18-24 (Month)</option>
-                                <option value="30">24-30 (Month)</option>
-                                <option value="36">30-36 (Month)</option>
-                                <option value="42">36-42 (Month)</option>
-                                <option value="48">42-48 (Month)</option>
+                                <option value="6">0 Month - 6 Month</option>
+                                <option value="12">6 Month - 1 Year</option>
+                                <option value="18">1 Year - 1 Year 6 Month</option>
+                                <option value="24">1 Year 6 Month - 2 Year</option>
+                                <option value="30">2 Year - 2 Year 6 Month</option>
+                                <option value="36">2 Year 6 Month - 3 Year</option>
+                                <option value="42">3 Year - 3 Year 6 Month</option>
+                                <option value="48">3 Year 6 Month - 4 Year</option>
+
+                                <option value="54">4 Year - 4 Year 6 Month</option>
+                                <option value="60">4 Year 6 Month - 5 Year </option>
+                                <option value="66">5 Year - 5 Year 6 Month </option>
+                                <option value="72">5 Year 6 Month - 6 Year</option>
+                                <option value="0">All</option>
                             </select>
                         </div>
 

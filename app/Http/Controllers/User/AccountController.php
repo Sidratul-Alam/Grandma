@@ -6,6 +6,7 @@ use DateTime;
 use App\Models\BabyInfo;
 use App\Models\Section;
 use App\Models\Services;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,6 @@ use array_add;
 class AccountController extends Controller
 {
     public function dashboard(){
-        
         $baby = BabyInfo::where('owner_id', '=', Auth()->user()->id)->first();
         return view('client.Account.dashboard', compact('baby'));
     }
@@ -51,7 +51,7 @@ class AccountController extends Controller
                 $result = Services::join('sections', 'sections.service_id', '=', 'services.id')
                     ->where('age_range', '>=', $start_age)
                     ->where('age_range', '<=', $end_age)
-                    ->select('service_title', 'title', 'details')
+                    ->select('service_title', 'title', 'details', '.sections.id as id')
                     ->get();
                 return $result;
             };
@@ -69,7 +69,16 @@ class AccountController extends Controller
             }elseif($to_int_month > 36 and $to_int_month <= 42 ){
                 $final_suggestion = selectSuggestion(36,42);
             }elseif($to_int_month > 42 and $to_int_month <= 48 ){
-                $final_suggestion = selectSuggestion(36,42);
+                $final_suggestion = selectSuggestion(42,48);
+            }
+            elseif($to_int_month > 48 and $to_int_month <= 54 ){
+                $final_suggestion = selectSuggestion(48,54);
+            }elseif($to_int_month > 54 and $to_int_month <= 60 ){
+                $final_suggestion = selectSuggestion(54,60);
+            }elseif($to_int_month > 66 and $to_int_month <= 72 ){
+                $final_suggestion = selectSuggestion(66,72);
+            }elseif($to_int_month > 78 and $to_int_month <= 84 ){
+                $final_suggestion = selectSuggestion(78,84);
             }else{
                 $final_suggestion = selectSuggestion(0,0);
             }
@@ -77,5 +86,28 @@ class AccountController extends Controller
         }
 
         return view('client.Account.baby-suggestion', compact('baby', 'diff', 'final_suggestion'));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        $form_data = array(
+            'name'=> $request->name
+        );
+
+        $record = User::find(Auth()->User()->id);
+        $record->update($form_data);
+        return redirect()->back()->with('success', 'Successfully updated');
+        
+    }
+
+    public function vaccination(){
+        $vaccines = Services::join('sections', 'sections.service_id', '=', 'services.id')
+            ->where('sections.age_range', 0)
+            ->get();
+        return view('client.Account.vaccination', compact('vaccines'));
     }
 }
